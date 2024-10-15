@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday of Juthi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #FF69B4, 0 0 10px #FF69B4; }
+            50% { text-shadow: 0 0 20px #FF69B4, 0 0 30px #FF69B4; }
+            100% { text-shadow: 0 0 5px #FF69B4, 0 0 10px #FF69B4; }
+        }
+        @keyframes colorChange {
+            0% { color: #FF69B4; }
+            25% { color: #FF1493; }
+            50% { color: #8A2BE2; }
+            75% { color: #1E90FF; }
+            100% { color: #FF69B4; }
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Mali', cursive;
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFC0CB 100%);
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 1s ease;
+        }
+        .page {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+        h1 {
+            font-size: 3rem;
+            color: #FF1493;
+            margin-bottom: 20px;
+            animation: glow 2s infinite;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .button {
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Mali', cursive;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            margin: 10px;
+        }
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+        }
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            z-index: 1;
+            animation: float 3s infinite ease-in-out;
+        }
+        .message {
+            background-color: white;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .message:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .birthday-text {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: colorChange 5s linear infinite;
+        }
+        .janu-text {
+            font-size: 2.5rem;
+            color: #FF1493;
+            text-shadow: 0 0 10px #FF69B4, 0 0 20px #FF69B4, 0 0 30px #FF69B4;
+            animation: glow 2s infinite;
+        }
+        .cake {
+            width: 100px;
+            height: 100px;
+            background-color: #FFB6C1;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+        }
+        .candle {
+            width: 10px;
+            height: 30px;
+            background-color: #FFF;
+            position: absolute;
+            top: -20px;
+        }
+        .flame {
+            width: 10px;
+            height: 10px;
+            background-color: #FFA500;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            top: -10px;
+            animation: float 0.5s infinite alternate;
+        }
+        .kiss-emojis {
+            font-size: 2rem;
+            margin-top: 20px;
+            display: none;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f2d74e;
+            position: absolute;
+            left: 50%;
+            animation: confetti 5s ease-in-out -2s infinite;
+            transform-origin: left top;
+        }
+        .confetti:nth-child(1) { background-color: #f2d74e; left: 10%; animation-delay: 0; }
+        .confetti:nth-child(2) { background-color: #95c3de; left: 20%; animation-delay: -5s; }
+        .confetti:nth-child(3) { background-color: #ff9a91; left: 30%; animation-delay: -3s; }
+        .confetti:nth-child(4) { background-color: #f2d74e; left: 40%; animation-delay: -2.5s; }
+        .confetti:nth-child(5) { background-color: #95c3de; left: 50%; animation-delay: -4s; }
+        .confetti:nth-child(6) { background-color: #ff9a91; left: 60%; animation-delay: -6s; }
+        .confetti:nth-child(7) { background-color: #f2d74e; left: 70%; animation-delay: -1.5s; }
+        .confetti:nth-child(8) { background-color: #95c3de; left: 80%; animation-delay: -2s; }
+        .confetti:nth-child(9) { background-color: #ff9a91; left: 90%; animation-delay: -3.5s; }
+        .confetti:nth-child(10) { background-color: #f2d74e; left: 100%; animation-delay: -2.5s; }
+
+        @keyframes confetti {
+            0% { transform: rotateZ(15deg) rotateY(0deg) translate(0,0); }
+            25% { transform: rotateZ(5deg) rotateY(360deg) translate(-5vw,20vh); }
+            50% { transform: rotateZ(15deg) rotateY(720deg) translate(5vw,60vh); }
+            75% { transform: rotateZ(5deg) rotateY(1080deg) translate(-10vw,80vh); }
+            100% { transform: rotateZ(15deg) rotateY(1440deg) translate(10vw,110vh); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page">
+            <div class="content">
+                <h1>Hiee my Juthi</h1>
+                <p class="subtitle">Assalamualaikum</p>
+                <audio id="birthdaySong" controls loop>
+                    <source src="https://res.cloudinary.com/prisma-studio/video/upload/v1728913211/Swapno_Amar_pgbs3w.mp3" type="audio/mpeg">
+                </audio>            
+                <button class="button" onclick="showSecondPage()">Open Your Surprise 🎁</button>
+            </div>
+            <div class="emoji" style="top: 10%; left: 10%;">❤️</div>
+            <div class="emoji" style="top: 20%; right: 15%;">🎉</div>
+            <div class="emoji" style="bottom: 15%; left: 20%;">🌟</div>
+            <div class="emoji" style="bottom: 25%; right: 10%;">🎈</div>
+            <div class="emoji" style="top: 40%; left: 5%;">✨</div>
+            <div class="emoji" style="top: 60%; right: 5%;">🌸</div>
+            <div class="emoji" style="bottom: 40%; left: 15%;">🍰</div>
+            <div class="emoji" style="bottom: 10%; right: 20%;">🎊</div>
+        </div>
+        <div class="page">
+            <div class="content">
+                <div class="birthday-text">HAPPY BIRTHDAY</div>
+                <div class="janu-text">my janu!</div>
+                <div class="cake">
+                    <div class="candle" style="left: 45%;">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+                <button class="button" onclick="blowCandles()">Love Tanzim to blow candle</button>
+                <div class="kiss-emojis">Choto er jonno choto cake thikase? xD</div>
+                <button class="button" onclick="window.open('https://res.cloudinary.com/prisma-studio/image/upload/v1728914985/Light_Pink_Typographic_Girlfriend_Birthday_Instagram_Story_2_j8rm5e.png', '_blank')">Get the wish card</button>
+                <p> -          your tanzim ❤️</p>
+            </div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+        </div>
+    </div>
+
+    <script>
+        function showSecondPage() {
+            document.querySelector('.container').style.transform = 'translateY(-100%)';
+        }
+
+        function toggleMusic() {
+            var audio = document.getElementById('birthdaySong');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        function blowCandles() {
+            document.querySelector('.flame').style.display = 'none';
+            document.querySelector('.kiss-emojis').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
